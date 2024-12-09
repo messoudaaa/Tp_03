@@ -1,0 +1,198 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+typedef struct element {
+    int val;
+    struct element* suivant;
+} element;
+
+// إنشاء liste vide
+element* creerListe() 
+{
+    element* l = NULL;
+    return l;
+}
+
+int main() 
+{
+    element* maListe = creerListe();
+    return 0;
+}
+
+//charger_liste
+element* charger_liste(int tab[], int n) 
+{
+    element *liste = NULL;
+    element *nouveau;
+
+    for (int i = 0; i < n; i++) {
+        nouveau = (element*)malloc(sizeof(element));
+        nouveau->val = tab[i];
+        nouveau->suivant = liste;
+        liste = nouveau;
+    }
+
+    return liste;
+}
+    //afficher_liste 
+  
+  
+  void  afficher_liste(element* l) {
+  
+  
+    if (l != NULL) {
+        while (l != NULL) {
+            printf("%d ", l->val);  
+            l = l->suivant;
+        }
+    } else {
+        printf("la liste est vide\n");
+    }
+}
+
+// اجراء لحذفالعنصر الأخير من القائمة
+void  supprimer_enfin(element* l) 
+  {
+     // تحقق إذا كانت القائمة فارغة
+     if (l == NULL) {
+        printf("La liste est vide\n");
+        return;
+    }
+
+    // إذا كانت القائمة تحتوي على عنصر واحد فقط
+    if ((l)->suivant == NULL) {
+        free(l);
+        l = NULL;
+        return;
+    }
+
+    // التنقل إلى العنصر قبل الأخير
+    element* temp = l;
+    while (temp->suivant != NULL && temp->suivant->suivant != NULL) {
+        temp = temp->suivant;
+    }
+
+    // حذف العنصر الأخير
+    free(temp->suivant);
+    temp->suivant = NULL;
+  }
+ 
+ 
+  //إضافة عنصر في بداية liste
+element* ajouter_en_tete(element *liste, int valeur) {
+    element *nouveau = (element*)malloc(sizeof(element));
+    if (nouveau == NULL) 
+       nouveau->val = valeur;
+      nouveau->suivant = liste;
+  return nouveau;
+}
+// اجراء  افراغ القائمة
+void vider_liste(element** l) {
+    element* temp;
+    while (*l != NULL) {
+        temp = *l;
+        *l = (*l)->suivant;   
+        free(temp); 
+    }
+    printf("La liste a été vidée.\n");
+}
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+typedef struct element {
+    int val;
+    struct element* suivant;
+} element;
+
+// إنشاء liste vide
+element* creerListe() 
+{
+    element* l = NULL;
+    return l;
+}
+
+int main() 
+{
+    element* maListe = creerListe();
+    return 0;
+}
+
+//charger_liste
+element* charger_liste(int tab[], int n) 
+{
+    element *liste = NULL;
+    element *nouveau;
+
+    for (int i = 0; i < n; i++) {
+        nouveau = (element*)malloc(sizeof(element));
+        nouveau->val = tab[i];
+        nouveau->suivant = liste;
+        liste = nouveau;
+    }
+
+    return liste;
+}
+    //afficher_liste 
+  
+  
+  void  afficher_liste(element* l) {
+  
+  
+    if (l != NULL) {
+        while (l != NULL) {
+            printf("%d ", l->val);  
+            l = l->suivant;
+        }
+    } else {
+        printf("la liste est vide\n");
+    }
+}
+
+// اجراء لحذفالعنصر الأخير من القائمة
+void  supprimer_enfin(element* l) 
+  {
+     // تحقق إذا كانت القائمة فارغة
+     if (l == NULL) {
+        printf("La liste est vide\n");
+        return;
+    }
+
+    // إذا كانت القائمة تحتوي على عنصر واحد فقط
+    if ((l)->suivant == NULL) {
+        free(l);
+        l = NULL;
+        return;
+    }
+
+    // التنقل إلى العنصر قبل الأخير
+    element* temp = l;
+    while (temp->suivant != NULL && temp->suivant->suivant != NULL) {
+        temp = temp->suivant;
+    }
+
+    // حذف العنصر الأخير
+    free(temp->suivant);
+    temp->suivant = NULL;
+  }
+ 
+ 
+  //إضافة عنصر في بداية liste
+element* ajouter_en_tete(element *liste, int valeur) {
+    element *nouveau = (element*)malloc(sizeof(element));
+    if (nouveau == NULL) 
+       nouveau->val = valeur;
+      nouveau->suivant = liste;
+  return nouveau;
+}
+// اجراء  افراغ القائمة
+void vider_liste(element** l) {
+    element* temp;
+    while (*l != NULL) {
+        temp = *l;
+        *l = (*l)->suivant;   
+        free(temp); 
+    }
+    printf("La liste a été vidée.\n");
+}
+
